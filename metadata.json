@@ -1,0 +1,5 @@
+{
+  "name": "World Cup",
+  "description": "A stats-based World Cup tournament simulator.",
+  "requestFramePermissions": []
+}

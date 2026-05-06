@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup Simulator</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="index.tsx"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1><span class="icon">🏆</span> World Cup Simulator</h1>
+            <p>Select your teams, customize their stats, and simulate an entire 32-team tournament!</p>
+        </header>
+        <main>
+            <div id="controls">
+                <button type="button" id="simulate-btn">Simulate World Cup</button>
+                <button type="button" id="customize-btn">Customize Teams</button>
+                <button type="button" id="load-btn">Load Last Simulation</button>
+                <div id="speed-control">
+                    <label for="speed-slider">Speed:</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="1" step="0.5" title="Simulation Speed">
+                </div>
+            </div>
+            <section id="pre-tournament-rankings">
+                <h2>Pre-Tournament Team Strength</h2>
+                <div id="rankings-container"></div>
+            </section>
+            <section id="tournament-container" aria-live="polite">
+                <div id="group-draw-container"></div>
+                <div id="group-stage-container"></div>
+                <div id="bracket-container"></div>
+                <div id="final-matches-container"></div>
+                <div id="champion-container"></div>
+                <div id="final-standings-container"></div>
+            </section>
+        </main>
+        <footer>
+            <p>Powered by a Stats-Based Simulator</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Match Details -->
+    <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div id="modal-body">
+                <!-- Detailed match results will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Team Customization -->
+    <div id="customize-modal" class="modal-overlay">
+        <div class="modal-content large">
+            <button id="customize-modal-close-btn" class="modal-close-btn">&times;</button>
+            <div class="modal-header">
+                <h2>Customize Tournament Teams</h2>
+                <p>Select exactly 32 teams and adjust their stats. Pots will be assigned automatically based on overall strength.</p>
+            </div>
+            <div id="team-customization-body">
+                <div id="available-teams-container">
+                    <h3>Available Teams</h3>
+                    <div class="team-list-header">
+                        <span>Sel</span>
+                        <span>Team</span>
+                        <span>Att</span>
+                        <span>Mid</span>
+                        <span>Def</span>
+                        <span>Ovr</span>
+                    </div>
+                    <div id="available-teams-list" class="team-list"></div>
+                </div>
+                <div id="selected-teams-container">
+                    <h3 id="selected-teams-header">Selected Teams (0/32)</h3>
+                     <div class="team-list-header">
+                        <span>Team</span>
+                        <span>Att</span>
+                        <span>Mid</span>
+                        <span>Def</span>
+                        <span>Ovr</span>
+                    </div>
+                    <div id="selected-teams-list" class="team-list"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-customization-btn" disabled>Save and Close</button>
+            </div>
+        </div>
+    </div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
